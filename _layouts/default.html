@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+  <head>
+    {% include head.html %} <!-- Jika Anda memisahkan bagian <head> juga -->
+  </head>
+  <body>
+    {% include branding.html %} <!-- Ini akan memanggil file branding di atas & bawah -->
+    
+    {% include navbar.html %}
+    
+    <main>
+      {{ content }} <!-- Di sinilah isi dari index.html atau halaman lain akan muncul -->
+    </main>
+    
+    {% include footer.html %}
+    
+    <!-- Script JS Global -->
+    {% include scripts.html %}
+  </body>
+</html>
