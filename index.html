@@ -1,13 +1,374 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url='https://cabdindikpora-wilayahiv.github.io/portal/'" />
-    <script type="text/javascript">
-        window.location.href = "https://cabdindikpora-wilayahiv.github.io/portal/"
-    </script>
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    <p>Sedang mengalihkan ke Portal... Jika tidak otomatis, <a href="https://cabdindikpora-wilayahiv.github.io/portal/">klik di sini</a>.</p>
-  </body>
+<html lang="id" data-bs-theme="light">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portal Layanan Pendidikan - Wilayah IV Sumbawa</title>
+		<!-- Bootstrap 5.3 CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Font Awesome 6 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+		
+		<style>
+			:root {
+				--primary-accent: #0056b3;
+				--developer-bg: #1a1a1a;
+			}
+
+			body { 
+				font-family: 'Plus Jakarta Sans', sans-serif; 
+				padding-top: 30px; /* Space for top sticky bar */
+				padding-bottom: 30px; /* Space for bottom sticky bar */
+			}
+
+			/* Sticky Developer Branding */
+			.dev-branding-bar {
+				background-color: var(--developer-bg);
+				color: #ffffff;
+				text-align: center;
+				font-size: 0.75rem;
+				padding: 5px 0;
+				position: fixed;
+				width: 100%;
+				z-index: 2000;
+				letter-spacing: 1px;
+				font-weight: 300;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+			}
+			.dev-top { top: 0; }
+			.dev-bottom { bottom: 0; }
+			.dev-name { font-weight: 700; color: #ffc107; }
+
+			/* Modern Styling */
+			.glass-nav {
+				background: rgba(var(--bs-tertiary-bg-rgb), 0.8) !important;
+				backdrop-filter: blur(10px);
+				border-bottom: 1px solid rgba(255,255,255,0.1);
+			}
+
+			.breaking-news-box {
+				background: #fdfdfd;
+				border: 1px solid #eee;
+				border-radius: 50px;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+			}
+			[data-bs-theme="dark"] .breaking-news-box { background: #111; border-color: #333; }
+
+			.bn-badge {
+				background: linear-gradient(45deg, #d32f2f, #f44336);
+				color: white;
+				padding: 8px 20px;
+				font-weight: 800;
+				font-size: 0.7rem;
+				text-transform: uppercase;
+			}
+
+			.service-card {
+				border: none;
+				border-radius: 20px;
+				transition: all 0.3s ease;
+				overflow: hidden;
+			}
+			.service-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+			}
+
+			.hero-gradient {
+				background: linear-gradient(135deg, #004e92 0%, #000428 100%);
+				border-radius: 0 0 100px 100px;
+				padding: 120px 0;
+				color: white;
+			}
+
+			.floating-toggle {
+				position: fixed;
+				right: 20px;
+				bottom: 50px;
+				z-index: 1060;
+			}
+			
+			.page-link {
+				border-radius: 8px;
+				margin: 0 4px;
+				border: none;
+				color: var(--bs-primary);
+				box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+			}
+			.page-item.active .page-link {
+				background-color: var(--bs-primary);
+				border-color: var(--bs-primary);
+			}
+			.nav-pills .nav-link.active {
+				background: linear-gradient(45deg, #004e92, #0056b3);
+				box-shadow: 0 4px 15px rgba(0,78,146,0.3);
+			}
+		</style>
+	</head>
+	
+	<body>
+
+		<!-- TOP STICKY BRANDING -->
+		<div class="dev-branding-bar dev-top">
+			DEVELOPED BY: <span class="dev-name">ZAINUL IKHSAN HAKIM</span> | PRANATA KOMPUTER AHLI PERTAMA
+		</div>
+		
+		<!-- BREAKING NEWS BAR -->
+		<div class="container mt-4 mb-2">
+			<div class="breaking-news-box shadow-sm">
+				<div class="bn-badge"><i class="fas fa-bolt me-2"></i>Update</div>
+				<marquee behavior="scroll" direction="left" class="py-2 text-muted" id="mainMarquee">
+					Selamat Datang di Portal Layanan Cabang Dinas Pendidikan dan Kebudayaan Wilayah IV Kabupaten Sumbawa — Informasi Terkini: Persiapan FLS3N 2026 Segera Dimulai — Layanan E-SPPD Digital Kini Tersedia.
+				</marquee>
+			</div>
+		</div>
+
+		<!-- NAVIGATION -->
+		<nav class="navbar navbar-expand-lg glass-nav sticky-top shadow-sm">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="#">
+					<span class="text-primary">DIKBUD</span> WILAYAH IV
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="mainMenu">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link px-3 active" href="#">Beranda</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown">Layanan Digital</a>
+							<ul class="dropdown-menu border-0 shadow-lg">
+								<li><a class="dropdown-item" href="#"><i class="fas fa-plane-departure me-2 text-primary"></i> E-SPPD</a></li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-id-card me-2 text-primary"></i> E-Kinerja</a></li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Presensi Wajah</a></li>
+							</ul>
+						</li>
+						<li class="nav-item"><a class="nav-link px-3" href="#">Informasi Publik</a></li>
+						<li class="nav-item ms-lg-3"><a class="btn btn-primary rounded-pill px-4" href="#">Login Portal</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- HERO SECTION -->
+		<header class="hero-gradient text-center">
+			<div class="container">
+				<span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2">Sistem Informasi Terpadu</span>
+				<h1 class="display-3 fw-800 mb-3">Membangun Pendidikan di <br>Tanah Samawa</h1>
+				<p class="lead opacity-75 mb-5">Efisiensi, Transparansi, dan Akuntabilitas Layanan Cabang Dinas Pendidikan Kabupaten Sumbawa.</p>
+				<div class="d-flex justify-content-center gap-3">
+					<button class="btn btn-light btn-lg rounded-pill px-5">E-SPPD</button>
+					<button class="btn btn-outline-light btn-lg rounded-pill px-5">Bantuan</button>
+				</div>
+			</div>
+		</header>
+
+		<!-- MAIN SERVICES -->
+		<section class="container my-5 pt-5">
+			<div class="text-center mb-5">
+				<h2 class="fw-bold">Layanan Unggulan</h2>
+				<div class="bg-primary mx-auto" style="height: 4px; width: 60px; border-radius: 2px;"></div>
+			</div>
+			
+			<div class="row g-4">
+				<!-- Service 1 -->
+				<div class="col-md-4">
+					<div class="card service-card h-100 bg-body-tertiary">
+						<div class="card-body p-4">
+							<div class="icon-box mb-4 text-primary fs-1"><i class="fas fa-server"></i></div>
+							<h5 class="fw-bold">Manajemen Data</h5>
+							<p class="text-muted">Pengolahan data kependidikan terpusat untuk akreditasi dan pelaporan sekolah.</p>
+							<a href="#" class="text-decoration-none fw-bold">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- Service 2 -->
+				<div class="col-md-4">
+					<div class="card service-card h-100 bg-body-tertiary">
+						<div class="card-body p-4">
+							<div class="icon-box mb-4 text-success fs-1"><i class="fas fa-shield-halved"></i></div>
+							<h5 class="fw-bold">Akreditasi Sekolah</h5>
+							<p class="text-muted">Pendampingan dan pemenuhan dokumen RKT/RKJM untuk peningkatan mutu satuan pendidikan.</p>
+							<a href="#" class="text-decoration-none fw-bold">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- Service 3 -->
+				<div class="col-md-4">
+					<div class="card service-card h-100 bg-body-tertiary">
+						<div class="card-body p-4">
+							<div class="icon-box mb-4 text-warning fs-1"><i class="fas fa-code"></i></div>
+							<h5 class="fw-bold">E-Government</h5>
+							<p class="text-muted">Implementasi Google Apps Script dan sistem berbasis web untuk otomasi perkantoran.</p>
+							<a href="#" class="text-decoration-none fw-bold">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="container my-5 py-4">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
+						<div>
+							<h2 class="fw-bold mb-0">Pusat Informasi</h2>
+							<p class="text-muted mb-0">Berita, pengumuman, dan artikel terbaru wilayah IV</p>
+						</div>
+						<!-- Tab Navigasi -->
+						<ul class="nav nav-pills" id="infoTab" role="tablist">
+							<li class="nav-item">
+								<button class="nav-link active rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-berita" onclick="currentCategory='berita'; renderContent(1)">Berita</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-pengumuman" onclick="currentCategory='pengumuman'; renderContent(1)">Pengumuman</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-artikel" onclick="currentCategory='artikel'; renderContent(1)">Artikel</button>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Tab Content Area -->
+					<div class="tab-content" id="infoTabContent">
+						<div class="tab-pane fade show active" id="tab-data">
+							<div class="row g-4" id="contentWrapper">
+								<!-- Konten akan dimuat secara dinamis oleh JavaScript -->
+							</div>
+
+							<!-- Pagination Control -->
+							<nav class="mt-5">
+								<ul class="pagination justify-content-center" id="paginationWrapper">
+									<!-- Tombol halaman dimuat di sini -->
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- THEME TOGGLER -->
+		<div class="floating-toggle">
+			<button class="btn btn-dark shadow-lg rounded-circle p-3" id="themeSwitcher">
+				<i class="fas fa-circle-half-stroke"></i>
+			</button>
+		</div>
+
+		<!-- BOTTOM STICKY BRANDING -->
+		<div class="dev-branding-bar dev-bottom">
+			&copy; 2026 | DESIGNED & DEVELOPED BY: <span class="dev-name">ZAINUL IKHSAN HAKIM</span> | PRANATA KOMPUTER AHLI PERTAMA
+		</div>
+
+		<!-- FOOTER INFO -->
+		<footer class="bg-body-secondary py-5 mt-5">
+			<div class="container text-center text-muted">
+				<p class="small">Cabang Dinas Pendidikan dan Kebudayaan Wilayah IV Kabupaten Sumbawa</p>
+				<div class="d-flex justify-content-center gap-3">
+					<a href="#" class="text-muted"><i class="fab fa-facebook"></i></a>
+					<a href="#" class="text-muted"><i class="fab fa-instagram"></i></a>
+					<a href="#" class="text-muted"><i class="fab fa-youtube"></i></a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Bootstrap JS Bundle -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+		<script>
+			// Theme Switcher Logic
+			const btn = document.getElementById('themeSwitcher');
+			const html = document.documentElement;
+
+			btn.addEventListener('click', () => {
+				const currentTheme = html.getAttribute('data-bs-theme');
+				const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+				html.setAttribute('data-bs-theme', newTheme);
+				
+				// Simpan preferensi pengguna
+				localStorage.setItem('theme', newTheme);
+			});
+
+			// Load saved theme
+			const savedTheme = localStorage.getItem('theme');
+			if (savedTheme) html.setAttribute('data-bs-theme', savedTheme);
+
+			// Dynamic Marquee News Update
+			const marquee = document.getElementById('mainMarquee');
+			const newsData = [
+				"Sistem E-SPPD Digital versi terbaru telah dirilis.",
+				"Pelaksanaan FLS3N 2026 Wilayah IV: Rabu-Kamis, 29-30 April 2026.",
+				"Pastikan data absen wajah terekam secara realtime di sistem."
+			];
+			let newsIndex = 0;
+
+			setInterval(() => {
+				newsIndex = (newsIndex + 1) % newsData.length;
+				marquee.innerText = newsData[newsIndex];
+			}, 12000);
+			
+			// Data Dummy (Simulasi 35 data untuk tes paginasi)
+			const allData = {
+				berita: Array.from({ length: 35 }, (_, i) => ({ title: `Berita Terkini Wilayah IV #${i + 1}`, date: '2026-05-04', desc: 'Laporan perkembangan pendidikan terbaru di Kabupaten Sumbawa...', icon: 'fa-newspaper' })),
+				pengumuman: Array.from({ length: 15 }, (_, i) => ({ title: `Pengumuman Dinas #${i + 1}`, date: '2026-05-01', desc: 'Instruksi resmi terkait administrasi sekolah dan guru...', icon: 'fa-bullhorn' })),
+				artikel: Array.from({ length: 22 }, (_, i) => ({ title: `Artikel Edukasi #${i + 1}`, date: '2026-04-20', desc: 'Tips dan trik penggunaan teknologi dalam proses belajar mengajar...', icon: 'fa-book-open' }))
+			};
+
+			let currentCategory = 'berita';
+			const itemsPerPage = 10;
+
+			function renderContent(page) {
+				const wrapper = document.getElementById('contentWrapper');
+				const pagination = document.getElementById('paginationWrapper');
+				const data = allData[currentCategory];
+				
+				// Hitung start dan end
+				const start = (page - 1) * itemsPerPage;
+				const end = start + itemsPerPage;
+				const paginatedData = data.slice(start, end);
+				const totalPages = Math.ceil(data.length / itemsPerPage);
+
+				// Render Cards
+				wrapper.innerHTML = paginatedData.map(item => `
+					<div class="col-md-6 col-lg-4">
+						<div class="card h-100 border-0 shadow-sm overflow-hidden">
+							<div class="card-body p-4">
+								<div class="d-flex align-items-center mb-3 text-primary">
+									<i class="fas ${item.icon} me-2"></i>
+									<small class="fw-bold">${currentCategory.toUpperCase()}</small>
+								</div>
+								<h5 class="fw-bold mb-2">${item.title}</h5>
+								<p class="text-muted small">${item.desc}</p>
+								<div class="d-flex justify-content-between align-items-center mt-3 border-top pt-2">
+									<small class="text-secondary"><i class="far fa-calendar-alt me-1"></i> ${item.date}</small>
+									<a href="#" class="btn btn-link btn-sm p-0 text-decoration-none fw-bold">Baca <i class="fas fa-chevron-right ms-1"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				`).join('');
+
+				// Render Pagination Buttons
+				let paginationHTML = '';
+				for (let i = 1; i <= totalPages; i++) {
+					paginationHTML += `
+						<li class="page-item ${i === page ? 'active' : ''}">
+							<a class="page-link" href="javascript:void(0)" onclick="renderContent(${i})">${i}</a>
+						</li>
+					`;
+				}
+				pagination.innerHTML = paginationHTML;
+			}
+
+			// Inisialisasi pertama kali
+			document.addEventListener('DOMContentLoaded', () => {
+				renderContent(1);
+			});
+		</script>
+
+	</body>
 </html>
