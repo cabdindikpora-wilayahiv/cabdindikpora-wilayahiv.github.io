@@ -1,1 +1,93 @@
+		<!-- Bootstrap JS Bundle -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+		<script>
+			// Theme Switcher Logic
+			const btn = document.getElementById('themeSwitcher');
+			const html = document.documentElement;
+
+			btn.addEventListener('click', () => {
+				const currentTheme = html.getAttribute('data-bs-theme');
+				const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+				html.setAttribute('data-bs-theme', newTheme);
+				
+				// Simpan preferensi pengguna
+				localStorage.setItem('theme', newTheme);
+			});
+
+			// Load saved theme
+			const savedTheme = localStorage.getItem('theme');
+			if (savedTheme) html.setAttribute('data-bs-theme', savedTheme);
+
+			// Dynamic Marquee News Update
+			const marquee = document.getElementById('mainMarquee');
+			const newsData = [
+				"Sistem E-SPPD Digital versi terbaru telah dirilis.",
+				"Pelaksanaan FLS3N 2026 Wilayah IV: Rabu-Kamis, 29-30 April 2026.",
+				"Pastikan data absen wajah terekam secara realtime di sistem."
+			];
+			let newsIndex = 0;
+
+			setInterval(() => {
+				newsIndex = (newsIndex + 1) % newsData.length;
+				marquee.innerText = newsData[newsIndex];
+			}, 12000);
+			
+			// Data Dummy (Simulasi 35 data untuk tes paginasi)
+			const allData = {
+				berita: Array.from({ length: 35 }, (_, i) => ({ title: `Berita Terkini Wilayah IV #${i + 1}`, date: '2026-05-04', desc: 'Laporan perkembangan pendidikan terbaru di Kabupaten Sumbawa...', icon: 'fa-newspaper' })),
+				pengumuman: Array.from({ length: 15 }, (_, i) => ({ title: `Pengumuman Dinas #${i + 1}`, date: '2026-05-01', desc: 'Instruksi resmi terkait administrasi sekolah dan guru...', icon: 'fa-bullhorn' })),
+				artikel: Array.from({ length: 22 }, (_, i) => ({ title: `Artikel Edukasi #${i + 1}`, date: '2026-04-20', desc: 'Tips dan trik penggunaan teknologi dalam proses belajar mengajar...', icon: 'fa-book-open' }))
+			};
+
+			let currentCategory = 'berita';
+			const itemsPerPage = 10;
+
+			function renderContent(page) {
+				const wrapper = document.getElementById('contentWrapper');
+				const pagination = document.getElementById('paginationWrapper');
+				const data = allData[currentCategory];
+				
+				// Hitung start dan end
+				const start = (page - 1) * itemsPerPage;
+				const end = start + itemsPerPage;
+				const paginatedData = data.slice(start, end);
+				const totalPages = Math.ceil(data.length / itemsPerPage);
+
+				// Render Cards
+				wrapper.innerHTML = paginatedData.map(item => `
+					<div class="col-md-6 col-lg-4">
+						<div class="card h-100 border-0 shadow-sm overflow-hidden">
+							<div class="card-body p-4">
+								<div class="d-flex align-items-center mb-3 text-primary">
+									<i class="fas ${item.icon} me-2"></i>
+									<small class="fw-bold">${currentCategory.toUpperCase()}</small>
+								</div>
+								<h5 class="fw-bold mb-2">${item.title}</h5>
+								<p class="text-muted small">${item.desc}</p>
+								<div class="d-flex justify-content-between align-items-center mt-3 border-top pt-2">
+									<small class="text-secondary"><i class="far fa-calendar-alt me-1"></i> ${item.date}</small>
+									<a href="#" class="btn btn-link btn-sm p-0 text-decoration-none fw-bold">Baca <i class="fas fa-chevron-right ms-1"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				`).join('');
+
+				// Render Pagination Buttons
+				let paginationHTML = '';
+				for (let i = 1; i <= totalPages; i++) {
+					paginationHTML += `
+						<li class="page-item ${i === page ? 'active' : ''}">
+							<a class="page-link" href="javascript:void(0)" onclick="renderContent(${i})">${i}</a>
+						</li>
+					`;
+				}
+				pagination.innerHTML = paginationHTML;
+			}
+
+			// Inisialisasi pertama kali
+			document.addEventListener('DOMContentLoaded', () => {
+				renderContent(1);
+			});
+		</script>
