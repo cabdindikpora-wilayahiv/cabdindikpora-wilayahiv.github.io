@@ -146,9 +146,31 @@
 			    color: #0d6efd;
 			    transform: translateX(5px);
 			}
+
+			/* Search Box Interaction */
+			.search-box input {
+			    width: 200px;
+			    transition: all 0.4s ease;
+			    font-size: 0.9rem;
+			}
+			
+			.search-box input:focus {
+			    width: 250px; /* Memanjang saat fokus di desktop */
+			    background-color: #fff !important;
+			    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+			}
 			
 			/* Responsivitas Mobile */
 			@media (max-width: 991.98px) {
+			    .search-box {
+			        width: 100%;
+			    }
+			    .search-box input {
+			        width: 100% !important; /* Full width di mobile */
+			    }			    
+			    .nav-link, .dropdown-item {
+			        padding: 12px 20px; /* Memperluas area klik untuk mobile */
+			    }
 			    .navbar-nav {
 			        padding: 1rem 0;
 			    }
