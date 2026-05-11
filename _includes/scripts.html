@@ -90,4 +90,30 @@
 			document.addEventListener('DOMContentLoaded', () => {
 				renderContent(1);
 			});
+			document.addEventListener("DOMContentLoaded", function() {
+			    const navLinks = document.querySelectorAll(".nav-link:not(.dropdown-toggle), .dropdown-item");
+			    const menuToggle = document.getElementById("mainMenu");
+			    const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+			
+			    navLinks.forEach((link) => {
+			        link.addEventListener("click", () => {
+			            // Cek apakah menu sedang terbuka (untuk mobile view)
+			            if (menuToggle.classList.contains("show")) {
+			                bsCollapse.hide();
+			            }
+			        });
+			    });
+			    
+			    // Feedback saat Search dijalankan
+			    const searchForm = document.querySelector('.search-box');
+			    searchForm.addEventListener('submit', function(e) {
+			        e.preventDefault();
+			        const query = this.querySelector('input').value;
+			        console.log("Mencari untuk:", query);
+			        // Tambahkan logika pencarian di sini
+			        if (menuToggle.classList.contains("show")) {
+			            bsCollapse.hide();
+			        }
+			    });
+			});
 		</script>
