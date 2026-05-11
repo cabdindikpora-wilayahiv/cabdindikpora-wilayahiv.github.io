@@ -107,5 +107,58 @@
 				background: linear-gradient(45deg, #004e92, #0056b3);
 				box-shadow: 0 4px 15px rgba(0,78,146,0.3);
 			}
+			/* Efek Glassmorphism (Contoh jika belum lengkap) */
+			.glass-nav {
+			    background: rgba(255, 255, 255, 0.8) !important;
+			    backdrop-filter: blur(10px);
+			    -webkit-backdrop-filter: blur(10px);
+			    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+			}
+			
+			/* Animasi Dropdown */
+			.animate {
+			    animation-duration: 0.2s;
+			    -webkit-animation-duration: 0.2s;
+			    animation-fill-mode: both;
+			    -webkit-animation-fill-mode: both;
+			}
+			
+			@keyframes slideIn {
+			    0% { transform: translateY(1rem); opacity: 0; }
+			    100% { transform: translateY(0rem); opacity: 1; }
+			}
+			
+			.slideIn { animation-name: slideIn; }
+			
+			/* Hover States */
+			.nav-link {
+			    font-weight: 500;
+			    transition: color 0.3s ease;
+			}
+			
+			.dropdown-item {
+			    padding: 0.7rem 1.5rem;
+			    transition: all 0.2s ease;
+			}
+			
+			.dropdown-item:hover {
+			    background-color: #f8f9fa;
+			    color: #0d6efd;
+			    transform: translateX(5px);
+			}
+			
+			/* Responsivitas Mobile */
+			@media (max-width: 991.98px) {
+			    .navbar-nav {
+			        padding: 1rem 0;
+			    }
+			    .nav-item {
+			        width: 100%;
+			    }
+			    .ms-lg-3 {
+			        margin-top: 1rem;
+			        margin-left: 0 !important;
+			    }
+			}
 		</style>
 	</head>
