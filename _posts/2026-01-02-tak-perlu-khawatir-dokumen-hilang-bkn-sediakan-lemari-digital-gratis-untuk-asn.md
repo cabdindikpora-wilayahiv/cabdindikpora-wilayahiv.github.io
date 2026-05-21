@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Tak Perlu Khawatir Dokumen Hilang, BKN Sediakan 'Lemari Digital' Gratis untuk ASN"
 date: 2026-01-02
 categories: 
