@@ -18,7 +18,7 @@
 		    ],
 		    pengumuman: [
 		      {% for post in site.posts %}
-		        {% if post.category == 'pengumuman' or post.category == 'liputan-khusus' or post.categories contains 'pengumuman' %}
+		        {% if post.category == 'liputan-khusus' or post.categories contains 'pengumuman' %}
 		        {
 		          title: {{ post.title | jsonify }},
 		          date: "{{ post.date | date: '%d %B %Y' }}",
