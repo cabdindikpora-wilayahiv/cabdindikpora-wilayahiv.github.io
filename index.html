@@ -35,7 +35,8 @@ title: Beranda
                 <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                     <i class="fas fa-school fa-lg"></i>
                 </div>
-                <h3 class="fw-bold mb-1" id="stat-sekolah">-</h3>
+                <!-- Memanggil data sekolah dari _data/statistik.yml -->
+                <h3 class="fw-bold mb-1">{{ site.data.statistik.sekolah }}</h3>
                 <p class="text-muted small mb-0">Total Satuan Pendidikan (SMA/SMK/SLB)</p>
             </div>
         </div>
@@ -45,7 +46,8 @@ title: Beranda
                 <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                     <i class="fas fa-chalkboard-teacher fa-lg"></i>
                 </div>
-                <h3 class="fw-bold mb-1" id="stat-guru">-</h3>
+                <!-- Memanggil data guru dari _data/statistik.yml -->
+                <h3 class="fw-bold mb-1">{{ site.data.statistik.guru }}</h3>
                 <p class="text-muted small mb-0">Guru & Tenaga Kependidikan</p>
             </div>
         </div>
@@ -55,7 +57,8 @@ title: Beranda
                 <div class="d-inline-flex align-items-center justify-content-center bg-info bg-opacity-10 text-info rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                     <i class="fas fa-user-graduate fa-lg"></i>
                 </div>
-                <h3 class="fw-bold mb-1" id="stat-siswa">-</h3>
+                <!-- Memanggil data siswa dari _data/statistik.yml -->
+                <h3 class="fw-bold mb-1">{{ site.data.statistik.siswa }}</h3>
                 <p class="text-muted small mb-0">Peserta Didik Terdata</p>
             </div>
         </div>
@@ -65,7 +68,8 @@ title: Beranda
                 <div class="d-inline-flex align-items-center justify-content-center bg-warning bg-opacity-10 text-warning rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
                     <i class="fas fa-map-marked-alt fa-lg"></i>
                 </div>
-                <h3 class="fw-bold mb-1" id="stat-wilayah">-</h3>
+                <!-- Memanggil data wilayah dari _data/statistik.yml -->
+                <h3 class="fw-bold mb-1">{{ site.data.statistik.wilayah }}</h3>
                 <p class="text-muted small mb-0">Cakupan Wilayah Kecamatan</p>
             </div>
         </div>
