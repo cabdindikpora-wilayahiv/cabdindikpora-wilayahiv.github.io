@@ -26,12 +26,58 @@ title: Beranda
     </div>
 </header>
 
+<!-- ADDITION 1: QUICK STATS (STATISTIK & DATA SEKTORAL) -->
+<section class="container" style="margin-top: -40px; position: relative; z-index: 10;">
+    <div class="row g-4 justify-content-center">
+        <!-- Card Sekolah -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-3 text-center transition-hover">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
+                    <i class="fas fa-school fa-lg"></i>
+                </div>
+                <h3 class="fw-bold mb-1" id="stat-sekolah">-</h3>
+                <p class="text-muted small mb-0">Total Satuan Pendidikan (SMA/SMK/SLB)</p>
+            </div>
+        </div>
+        <!-- Card Guru/GTK -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-3 text-center transition-hover">
+                <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
+                    <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                </div>
+                <h3 class="fw-bold mb-1" id="stat-guru">-</h3>
+                <p class="text-muted small mb-0">Guru & Tenaga Kependidikan</p>
+            </div>
+        </div>
+        <!-- Card Siswa -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-3 text-center transition-hover">
+                <div class="d-inline-flex align-items-center justify-content-center bg-info bg-opacity-10 text-info rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
+                    <i class="fas fa-user-graduate fa-lg"></i>
+                </div>
+                <h3 class="fw-bold mb-1" id="stat-siswa">-</h3>
+                <p class="text-muted small mb-0">Peserta Didik Terdata</p>
+            </div>
+        </div>
+        <!-- Card Wilayah -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100 p-3 text-center transition-hover">
+                <div class="d-inline-flex align-items-center justify-content-center bg-warning bg-opacity-10 text-warning rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px;">
+                    <i class="fas fa-map-marked-alt fa-lg"></i>
+                </div>
+                <h3 class="fw-bold mb-1" id="stat-wilayah">-</h3>
+                <p class="text-muted small mb-0">Cakupan Wilayah Kecamatan</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- MAIN SERVICES -->
 <section class="container my-5 pt-5">
     <!-- Konten Layanan Unggulan Anda di sini -->
 </section>
 
-<!-- Berita, Pengumuman, Artiel & Agenda Kegiatan -->
+<!-- Berita, Pengumuman, Artikel & Agenda Kegiatan -->
 <section class="container my-5 py-4">
   <div class="row">
     <div class="col-lg-12">
@@ -66,6 +112,57 @@ title: Beranda
       </div>
     </div>
   </div>
+</section>
+
+<!-- ADDITION 2: GALERI & PRESTASI WILAYAH -->
+<section class="bg-light py-5">
+    <div class="container my-4">
+        <div class="mb-4 border-bottom pb-3">
+            <h2 class="fw-bold mb-0">Galeri & Prestasi Wilayah</h2>
+            <p class="text-muted mb-0">Dokumentasi kegiatan dan capaian emas pemuda, olahraga, serta instansi pendidikan</p>
+        </div>
+        <div class="row g-4">
+            <!-- Item Galeri 1 (Prestasi) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden group-hover">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" class="card-img-top img-fluid transition-scale" alt="Dokumentasi FLS3N Sumbawa">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark rounded-pill px-3 py-2"><i class="fas fa-trophy me-1"></i> Prestasi</span>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-2">Apresiasi Juara FLS3N 2026 Tingkat Kabupaten</h5>
+                        <p class="text-muted small mb-0">Selamat kepada perwakilan siswa hebat dari SMAN 3 Sumbawa Besar atas capaian gemilang dalam ajang seni tahun ini.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item Galeri 2 (Kegiatan Dinas) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden group-hover">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" class="card-img-top img-fluid transition-scale" alt="Rapat Koordinasi Dapodik">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-primary rounded-pill px-3 py-2"><i class="fas fa-camera me-1"></i> Kegiatan</span>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-2">Rapat Koordinasi Sinkronisasi Data Dapodik</h5>
+                        <p class="text-muted small mb-0">Peningkatan mutu tata kelola pengarsipan dinamis dan pemutakhiran berkas administrasi sekolah se-Wilayah IV.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Item Galeri 3 (Kegiatan Olahraga/Pemuda) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden group-hover">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80" class="card-img-top img-fluid transition-scale" alt="Pembinaan Pemuda">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-success rounded-pill px-3 py-2"><i class="fas fa-running me-1"></i> Pemuda & Olahraga</span>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-2">Pembinaan Atlet Muda Berbakat Kabupaten Sumbawa</h5>
+                        <p class="text-muted small mb-0">Sinergi program peningkatan kapasitas pemuda guna mempersiapkan kompetisi olahraga di tingkat provinsi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- THEME TOGGLER -->
