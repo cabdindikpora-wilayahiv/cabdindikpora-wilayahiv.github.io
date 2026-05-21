@@ -168,8 +168,8 @@
 			}
 
 			// Jalankan saat halaman pertama dimuat dan setiap kali URL hash berubah
-			window.addEventListener('hashchange', generateBreadcrumbFromHash);
-			window.addEventListener('DOMContentLoaded', generateBreadcrumbFromHash);
+			window.addEventListener('hashchange', generateBreadcrumbFromHash());
+			window.addEventListener('DOMContentLoaded', generateBreadcrumbFromHash());
 		  	// Akhir skrip
 		
 		  	// Inisialisasi Konten Saat Halaman Pertama Kali Terbuka
