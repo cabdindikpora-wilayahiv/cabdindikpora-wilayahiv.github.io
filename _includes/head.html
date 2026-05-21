@@ -196,6 +196,32 @@
 			    color: #0d6efd;
 			    transform: translateX(5px);
 			}*/
+
+			/* Efek Hover Mengangkat Kartu */
+			.custom-post-card {
+			  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+			}
+			.custom-post-card:hover {
+			  transform: translateY(-5px);
+			  box-shadow: 0 1rem 3rem rgba(0,0,0,.125) !important;
+			}
+			
+			/* Link Judul Berubah Warna */
+			.dynamic-title-link {
+			  transition: color 0.2s ease;
+			}
+			.dynamic-title-link:hover {
+			  color: var(--bs-primary) !important;
+			}
+			
+			/* Animasi Anak Panah Bergeser Sedikit ke Kanan */
+			.animate-arrow i {
+			  transition: transform 0.2s ease;
+			}
+			.animate-arrow:hover i {
+			  transform: translateX(4px);
+			}
+						
 			/* Responsivitas Mobile */
 			@media (max-width: 991.98px) {
 			    .search-box {
