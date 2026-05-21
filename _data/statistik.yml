@@ -1,4 +1,4 @@
-sekolah: 45
-guru: 1250
-siswa: 18450
-wilayah: 24
+sekolah: "45"
+guru: "1.250"
+siswa: "18.450"
+wilayah: "24"
