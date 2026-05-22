@@ -1,4 +1,5 @@
 ---
+layout: page
 title: "Kode Etik"
 date: 2024-06-11
 ---
