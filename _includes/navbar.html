@@ -1,12 +1,7 @@
 		<!-- NAVIGATION -->
 		<nav class="navbar navbar-expand-lg glass-nav sticky-top shadow-sm">
 		    <div class="container">
-		        <img
-					src="{{ '/assets/images/logo.png' | relative_url }}" 
-				    alt="KCD Smart" 
-				    class="img-fluid rounded shadow"
-				    loading="lazy"
-				  >
+		        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="KCD Smart" loading="lazy">
 				<!-- <a class="navbar-brand fw-bold" href="#">
 		            <span class="text-primary">CABDIN DIKPORA</span><br />WILAYAH IV
 		        </a> -->
@@ -19,8 +14,18 @@
 		                <li class="nav-item">
 		                    <a class="nav-link px-3 active" href="#">Beranda</a>
 		                </li>
-		
-		                <!-- Dropdown Layanan -->
+						<li class="nav-item dropdown">
+		                    <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown">Profil</a>
+		                    <ul class="dropdown-menu border-0 shadow-lg">
+		                        <li><a class="dropdown-item" href="#"><i class="fas fa-plane-departure me-2 text-primary"></i> Visi Misi</a></li>
+		                        <li><a class="dropdown-item" href="#"><i class="fas fa-id-card me-2 text-primary"></i> Struktur Organisasi</a></li>
+		                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Tugas Pokok dan Fungsi</a></li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Kode Etik</a></li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Nilai Utama ASN</a></li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Maklumat Layanan</a></li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Standar Layanan</a></li>
+		                    </ul>
+		                </li>
 		                <li class="nav-item dropdown">
 		                    <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown">Layanan Digital</a>
 		                    <ul class="dropdown-menu border-0 shadow-lg">
