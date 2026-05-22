@@ -14,18 +14,43 @@
 		                <li class="nav-item">
 		                    <a class="nav-link px-3 active" href="#">Beranda</a>
 		                </li>
-						<li class="nav-item dropdown">
-		                    <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown">Profil</a>
-		                    <ul class="dropdown-menu border-0 shadow-lg">
-		                        <li><a class="dropdown-item" href="#"><i class="fas fa-plane-departure me-2 text-primary"></i> Visi Misi</a></li>
-		                        <li><a class="dropdown-item" href="#"><i class="fas fa-id-card me-2 text-primary"></i> Struktur Organisasi</a></li>
-		                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Tugas Pokok dan Fungsi</a></li>
-								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Kode Etik</a></li>
-								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Nilai Utama ASN</a></li>
-								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Maklumat Layanan</a></li>
-								<li><a class="dropdown-item" href="#"><i class="fas fa-user-check me-2 text-primary"></i> Standar Layanan</a></li>
-		                    </ul>
-		                </li>
+						<ul class="dropdown-menu border-0 shadow-lg">
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/visi-misi/">
+						            <i class="fas fa-bullseye me-2 text-primary"></i> Visi Misi
+						        </a>
+						    </li>
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/struktur-organisasi/">
+						            <i class="fas fa-sitemap me-2 text-primary"></i> Struktur Organisasi
+						        </a>
+						    </li>
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/tupoksi/">
+						            <i class="fas fa-id-card-alt me-2 text-primary"></i> Tugas Pokok dan Fungsi
+						        </a>
+						    </li>
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/kode-etik/">
+						            <i class="fas fa-balance-scale me-2 text-primary"></i> Kode Etik
+						        </a>
+						    </li>
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/nilai-asn/">
+						            <i class="fas fa-heart-square me-2 text-primary"></i> Nilai Utama ASN
+						        </a>
+						    </li>
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/maklumat-layanan/">
+						            <i class="fas fa-scroll me-2 text-primary"></i> Maklumat Layanan
+						        </a>
+						    </li>
+						    <li>
+						        <a class="dropdown-item" href="{{ site.baseurl }}/profil/standar-layanan/">
+						            <i class="fas fa-clipboard-check me-2 text-primary"></i> Standar Layanan
+						        </a>
+						    </li>
+						</ul>
 		                <li class="nav-item dropdown">
 		                    <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown">Layanan Digital</a>
 		                    <ul class="dropdown-menu border-0 shadow-lg">
