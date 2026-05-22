@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Kode Etik"
+permalink: /profil/kode-etik/
 date: 2024-06-11
 ---
 
