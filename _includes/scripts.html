@@ -10,7 +10,7 @@
 		          	url: {{ post.url | relative_url | jsonify }},
 		          	desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
 		          	icon: "fa-newspaper"
-		        },
+		        }
 		        {% endif %}
 		    {% endfor %}
 		],
@@ -23,7 +23,7 @@
 		          	url: {{ post.url | relative_url | jsonify }},
 		          	desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
 		          	icon: "fa-bullhorn"
-		        },
+		        }
 		        {% endif %}
 		    {% endfor %}
 		],
@@ -36,7 +36,7 @@
 		          	url: {{ post.url | relative_url | jsonify }},
 		          	desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
 		          	icon: "fa-book-open"
-		        },
+		        }
 		        {% endif %}
 		    {% endfor %}
 		]
