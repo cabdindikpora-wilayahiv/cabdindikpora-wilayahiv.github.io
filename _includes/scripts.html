@@ -41,7 +41,7 @@
 		    {% endfor %}
 		]
 	};
-
+	
 	// 2. Konfigurasi State Navigasi
 	let currentCategory = 'berita';
 	const itemsPerPage = 6; // Menampilkan 6 item per halaman demi keseimbangan layout grid
@@ -55,9 +55,9 @@
 		if (data.length === 0) {
 		    wrapper.innerHTML = `
 		        <div class="col-12 text-center py-5">
-		          <div class="text-muted mb-2"><i class="fas fa-folder-open fa-3x"></i></div>
-		          <p class="text-muted">Belum ada postingan di kategori ${currentCategory}.</p>
-		        </div>`;
+					<div class="text-muted mb-2"><i class="fas fa-folder-open fa-3x"></i></div>
+		          	<p class="text-muted">Belum ada postingan di kategori ${currentCategory}.</p>
+		    	</div>`;
 		    document.getElementById('paginationWrapper').innerHTML = '';
 		    return;
 		}
@@ -68,71 +68,72 @@
 		const paginatedData = data.slice(start, end);
 
 		// Menyusun elemen HTML kartu secara berkala
-		    wrapper.innerHTML = paginatedData.map(item => `
-		      <div class="col-md-6 col-lg-4">
-		        <div class="card h-100 border-0 shadow-sm custom-post-card">
-		          <div class="card-body p-4 d-flex flex-column">
-		            <div class="d-flex align-items-center mb-3 text-primary">
-		              <i class="fas ${item.icon} me-2"></i>
-		              <small class="fw-bold tracking-wider text-uppercase">${currentCategory}</small>
-		            </div>
-		            <h5 class="fw-bold card-title mb-2">
-		              <a href="${item.url}" class="text-decoration-none text-dark dynamic-title-link">${item.title}</a>
-		            </h5>
-		            <p class="text-muted small flex-grow-1">${item.desc}</p>
-		            <div class="d-flex justify-content-between align-items-center mt-3 border-top pt-3">
-		              <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> ${item.date}</small>
-		              <a href="${item.url}" class="btn btn-link btn-sm p-0 text-primary fw-semibold text-decoration-none animate-arrow" aria-label="Baca selengkapnya mengenai ${item.title}">
-		                Baca <i class="fas fa-arrow-right ms-1"></i>
-		              </a>
-		            </div>
-		          </div>
+		wrapper.innerHTML = paginatedData.map(item => `
+			<div class="col-md-6 col-lg-4">
+		    	<div class="card h-100 border-0 shadow-sm custom-post-card">
+		        	<div class="card-body p-4 d-flex flex-column">
+		            	<div class="d-flex align-items-center mb-3 text-primary">
+		              		<i class="fas ${item.icon} me-2"></i>
+		              		<small class="fw-bold tracking-wider text-uppercase">${currentCategory}</small>
+		            	</div>
+		            	<h5 class="fw-bold card-title mb-2">
+		              		<a href="${item.url}" class="text-decoration-none text-dark dynamic-title-link">${item.title}</a>
+		            	</h5>
+		            	<p class="text-muted small flex-grow-1">${item.desc}</p>
+		            	<div class="d-flex justify-content-between align-items-center mt-3 border-top pt-3">
+		              		<small class="text-muted"><i class="far fa-calendar-alt me-1"></i> ${item.date}</small>
+		              		<a href="${item.url}" class="btn btn-link btn-sm p-0 text-primary fw-semibold text-decoration-none animate-arrow" aria-label="Baca selengkapnya mengenai ${item.title}">
+		                		Baca <i class="fas fa-arrow-right ms-1"></i>
+		              		</a>
+		            	</div>
+		          	</div>
 		        </div>
-		      </div>
-		    `).join('');
-
-		    renderPagination(data.length, page);
-		  }
-
-		  // 4. Fungsi Pembuat Kontrol Paginasi (Pagination Wrapper)
-		  function renderPagination(totalItems, currentPage) {
-		    const pagination = document.getElementById('paginationWrapper');
-		    const totalPages = Math.ceil(totalItems / itemsPerPage);
-		    let paginationHTML = '';
-
-		    if (totalPages <= 1) {
-		      pagination.innerHTML = '';
-		      return;
-		    }
-
-		    for (let i = 1; i <= totalPages; i++) {
-		      paginationHTML += `
-		        <li class="page-item ${i === currentPage ? 'active' : ''}">
-		          <a class="page-link rounded-circle mx-1 d-flex align-items-center justify-content-center" 
+		    </div>
+		`).join('');
+		
+		renderPagination(data.length, page);
+	}
+	
+	// 4. Fungsi Pembuat Kontrol Paginasi (Pagination Wrapper)
+	function renderPagination(totalItems, currentPage) {
+		const pagination = document.getElementById('paginationWrapper');
+		const totalPages = Math.ceil(totalItems / itemsPerPage);
+		let paginationHTML = '';
+		
+		if (totalPages <= 1) {
+			pagination.innerHTML = '';
+		    return;
+		}
+		
+		for (let i = 1; i <= totalPages; i++) {
+			paginationHTML += `
+		    	<li class="page-item ${i === currentPage ? 'active' : ''}">
+		        	<a class="page-link rounded-circle mx-1 d-flex align-items-center justify-content-center" 
 		             style="width: 40px; height: 40px;" 
 		             href="javascript:void(0)" 
-		             onclick="renderContent(${i})">${i}</a>
-		        </li>`;
-		    }
-		    pagination.innerHTML = paginationHTML;
-		  }
-
-		  // Inisialisasi Konten Saat Halaman Pertama Kali Terbuka
-		  document.addEventListener('DOMContentLoaded', () => {
-		    renderContent(1);
-		  });
+		             onclick="renderContent(${i})">${i}
+					</a>
+		    	</li>`;
+		}
+		pagination.innerHTML = paginationHTML;
+	}
+		
+	// Inisialisasi Konten Saat Halaman Pertama Kali Terbuka
+	document.addEventListener('DOMContentLoaded', () => {
+		renderContent(1);
+	});
 		  
-		  document.addEventListener("DOMContentLoaded", function () {
-			// Pengaturan durasi putaran slide (dalam milidetik, 5000 = 5 detik)
-			const opsiCarousel = {
-				interval: 5000,
-				ride: 'carousel',
-				pause: 'hover' // Slide berhenti berputar sejenak saat kursor mouse menyentuhnya
-			};
-
-			// Inisialisasi ketiga carousel galeri Anda
-			const carousel1 = new bootstrap.Carousel(document.getElementById('carouselPrestasi'), opsiCarousel);
-			const carousel2 = new bootstrap.Carousel(document.getElementById('carouselKegiatan'), opsiCarousel);
-			const carousel3 = new bootstrap.Carousel(document.getElementById('carouselSport'), opsiCarousel);
-		});
-		</script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// Pengaturan durasi putaran slide (dalam milidetik, 5000 = 5 detik)
+		const opsiCarousel = {
+			interval: 5000,
+			ride: 'carousel',
+			pause: 'hover' // Slide berhenti berputar sejenak saat kursor mouse menyentuhnya
+		};
+			
+		// Inisialisasi ketiga carousel galeri Anda
+		const carousel1 = new bootstrap.Carousel(document.getElementById('carouselPrestasi'), opsiCarousel);
+		const carousel2 = new bootstrap.Carousel(document.getElementById('carouselKegiatan'), opsiCarousel);
+		const carousel3 = new bootstrap.Carousel(document.getElementById('carouselSport'), opsiCarousel);
+	});
+</script>
