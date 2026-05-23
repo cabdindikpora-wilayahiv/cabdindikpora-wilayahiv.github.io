@@ -238,130 +238,53 @@ title: Beranda
   </div>
 </section>
 
-<!-- ADDITION 2: GALERI & PRESTASI WILAYAH (DYNAMIC CAROUSEL) -->
+<!-- ADDITION 2: GALERI & PRESTASI WILAYAH -->
 <section class="bg-light py-5">
     <div class="container my-4">
         <div class="mb-4 border-bottom pb-3">
             <h2 class="fw-bold mb-0">Galeri & Prestasi Wilayah</h2>
-            <p class="text-muted mb-0">Dokumentasi kegiatan dan capaian emas pemuda, olahraga, serta instansi kependidikan</p>
+            <p class="text-muted mb-0">Dokumentasi kegiatan dan capaian emas pemuda, olahraga, serta instansi pendidikan</p>
         </div>
-
         <div class="row g-4">
-            
-            <!-- ====== KATEGORI 1: PRESTASI ====== -->
-            <div class="col-lg-4">
-                <div class="p-3 bg-white rounded-4 shadow-sm h-100">
-                    <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-                        <h5 class="fw-bold m-0 text-dark"><i class="fas fa-trophy text-warning me-2"></i>Prestasi</h5>
-                        <span class="badge bg-warning text-dark rounded-pill">Slide Show</span>
+            <!-- Item Galeri 1 (Prestasi) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden group-hover">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" class="card-img-top img-fluid transition-scale" alt="Dokumentasi FLS3N Sumbawa">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark rounded-pill px-3 py-2"><i class="fas fa-trophy me-1"></i> Prestasi</span>
                     </div>
-                    
-                    <!-- Carousel Prestasi -->
-                    <div id="carouselPrestasi" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            {% assign prestasi_items = site.data.galeri | where: "kategori", "prestasi" %}
-                            {% for item in prestasi_items %}
-                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="card border-0 overflow-hidden">
-                                    <div class="position-relative overflow-hidden rounded-4" style="height: 200px;">
-                                        <img src="{{ item.gambar | relative_url }}" class="w-100 h-100 object-fit-cover" alt="{{ item.judul }}">
-                                    </div>
-                                    <div class="card-body px-1 py-3">
-                                        <h6 class="fw-bold text-truncate mb-1">{{ item.judul }}</h6>
-                                        <p class="text-muted small mb-0 class-line-clamp">{{ item.deskripsi }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {% empty %}
-                            <div class="text-center py-5 text-muted small">Belum ada data prestasi.</div>
-                            {% endfor %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrestasi" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselPrestasi" data-bs-slide="next">
-                            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                        </button>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-2">Apresiasi Juara FLS3N 2026 Tingkat Kabupaten</h5>
+                        <p class="text-muted small mb-0">Selamat kepada perwakilan siswa hebat atas capaian gemilang dalam ajang seni tahun ini.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- ====== KATEGORI 2: KEGIATAN DINAS ====== -->
-            <div class="col-lg-4">
-                <div class="p-3 bg-white rounded-4 shadow-sm h-100">
-                    <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-                        <h5 class="fw-bold m-0 text-dark"><i class="fas fa-camera text-primary me-2"></i>Kegiatan Dinas</h5>
-                        <span class="badge bg-primary rounded-pill">Slide Show</span>
+            <!-- Item Galeri 2 (Kegiatan Dinas) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden group-hover">
+                        <img src="{{ '/assets/images/galeri/rakor-bersama-kasek-sma-smk-slb.png' | relative_url }}" class="card-img-top img-fluid transition-scale" alt="Rapat Koordinasi Dapodik">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-primary rounded-pill px-3 py-2"><i class="fas fa-camera me-1"></i> Kegiatan</span>
                     </div>
-                    
-                    <!-- Carousel Kegiatan -->
-                    <div id="carouselKegiatan" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            {% assign kegiatan_items = site.data.galeri | where: "kategori", "kegiatan" %}
-                            {% for item in kegiatan_items %}
-                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="card border-0 overflow-hidden">
-                                    <div class="position-relative overflow-hidden rounded-4" style="height: 200px;">
-                                        <img src="{{ item.gambar | relative_url }}" class="w-100 h-100 object-fit-cover" alt="{{ item.judul }}">
-                                    </div>
-                                    <div class="card-body px-1 py-3">
-                                        <h6 class="fw-bold text-truncate mb-1">{{ item.judul }}</h6>
-                                        <p class="text-muted small mb-0 class-line-clamp">{{ item.deskripsi }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {% empty %}
-                            <div class="text-center py-5 text-muted small">Belum ada data kegiatan dinas.</div>
-                            {% endfor %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselKegiatan" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselKegiatan" data-bs-slide="next">
-                            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                        </button>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-2">Rapat Koordinasi</h5>
+                        <p class="text-muted small mb-0">Cabang Dinas Dikpora Wilayah IV Sumbawa menggelar Rapat Koordinasi bersama Kepala SMA/SMK/SLB Negeri se-wilayah pada Hari Senin, 11 Mei 2026 di Aula Kantor Cabang Dinas Dikpora Wilayah IV Sumbawa.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- ====== KATEGORI 3: PEMUDA & OLAHRAGA ====== -->
-            <div class="col-lg-4">
-                <div class="p-3 bg-white rounded-4 shadow-sm h-100">
-                    <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-                        <h5 class="fw-bold m-0 text-dark"><i class="fas fa-running text-success me-2"></i>Pemuda & Olahraga</h5>
-                        <span class="badge bg-success rounded-pill">Slide Show</span>
+            <!-- Item Galeri 3 (Kegiatan Olahraga/Pemuda) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden group-hover">
+                        <img class="card-img-top img-fluid transition-scale" src="{{ '/assets/images/galeri/kegiatan_diseminasi_pengujianukbi.png' | relative_url }}">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-success rounded-pill px-3 py-2"><i class="fas fa-running me-1"></i> Pemuda & Olahraga</span>
                     </div>
-                    
-                    <!-- Carousel Pemuda & Olahraga -->
-                    <div id="carouselSport" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            {% assign sport_items = site.data.galeri | where: "kategori", "pemuda_olahraga" %}
-                            {% for item in sport_items %}
-                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="card border-0 overflow-hidden">
-                                    <div class="position-relative overflow-hidden rounded-4" style="height: 200px;">
-                                        <img src="{{ item.gambar | relative_url }}" class="w-100 h-100 object-fit-cover" alt="{{ item.judul }}">
-                                    </div>
-                                    <div class="card-body px-1 py-3">
-                                        <h6 class="fw-bold text-truncate mb-1">{{ item.judul }}</h6>
-                                        <p class="text-muted small mb-0 class-line-clamp">{{ item.deskripsi }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {% empty %}
-                            <div class="text-center py-5 text-muted small">Belum ada data pemuda & olahraga.</div>
-                            {% endfor %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSport" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselSport" data-bs-slide="next">
-                            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
-                        </button>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-2">Desiminasi dan Pengujian UKBI</h5>
+                        <p class="text-muted small mb-0">Balai Bahasa Provinsi NTB menggelar kegiatan Diseminasi dan Pengujian Uji Kemahiran Berbahasa Indonesia (UKBI) di Kabupaten Sumbawa</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
