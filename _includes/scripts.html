@@ -2,7 +2,6 @@
 	// 1. Ekstraksi Data dari Engine Jekyll ke Array JavaScript saat Build Time (Bebas Trailing Comma)
 	const allData = {
 		berita: [
-			{% assign berita_posts = site.posts | scenario: "kategori-filter-berita" %} 
 			{% assign count = 0 %}
 			{% for post in site.posts %}
 				{% if post.category == 'berita' or post.categories contains 'berita' %}
