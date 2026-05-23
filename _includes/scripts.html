@@ -1,55 +1,55 @@
 <script>
 	// 1. Ekstraksi Data dari Engine Jekyll ke Array JavaScript saat Build Time (Bebas Trailing Comma)
-	const allData = {
-		berita: [
-			{% assign count = 0 %}
-			{% for post in site.posts %}
-				{% if post.category == 'berita' or post.categories contains 'berita' %}
-					{% if count > 0 %},{% endif %}
-					{
-						title: {{ post.title | jsonify }},
-						date: "{{ post.date | date: '%d %B %Y' }}",
-						url: {{ post.url | relative_url | jsonify }},
-						desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
-						icon: "fa-newspaper"
-					}
-					{% assign count = count | plus: 1 %}
-				{% endif %}
-			{% endfor %}
-		],
-		pengumuman: [
-			{% assign count = 0 %}
-			{% for post in site.posts %}
-				{% if post.category == 'liputan-khusus' or post.categories contains 'pengumuman' %}
-					{% if count > 0 %},{% endif %}
-					{
-						title: {{ post.title | jsonify }},
-						date: "{{ post.date | date: '%d %B %Y' }}",
-						url: {{ post.url | relative_url | jsonify }},
-						desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
-						icon: "fa-bullhorn"
-					}
-					{% assign count = count | plus: 1 %}
-				{% endif %}
-			{% endfor %}
-		],
-		artikel: [
-			{% assign count = 0 %}
-			{% for post in site.posts %}
-				{% if post.category == 'artikel' or post.categories contains 'artikel' %}
-					{% if count > 0 %},{% endif %}
-					{
-						title: {{ post.title | jsonify }},
-						date: "{{ post.date | date: '%d %B %Y' }}",
-						url: {{ post.url | relative_url | jsonify }},
-						desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
-						icon: "fa-book-open"
-					}
-					{% assign count = count | plus: 1 %}
-				{% endif %}
-			{% endfor %}
-		]
-	};
+    const allData = {
+        berita: [
+            {% assign count = 0 %}
+            {% for post in site.posts %}
+                {% if post.path contains '_posts/berita/' %}
+                    {% if count > 0 %},{% endif %}
+                    {
+                        title: {{ post.title | jsonify }},
+                        date: "{{ post.date | date: '%d %B %Y' }}",
+                        url: {{ post.url | relative_url | jsonify }},
+                        desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
+                        icon: "fa-newspaper"
+                    }
+                    {% assign count = count | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+        ],
+        pengumuman: [
+            {% assign count = 0 %}
+            {% for post in site.posts %}
+                {% if post.path contains '_posts/pengumuman/' %}
+                    {% if count > 0 %},{% endif %}
+                    {
+                        title: {{ post.title | jsonify }},
+                        date: "{{ post.date | date: '%d %B %Y' }}",
+                        url: {{ post.url | relative_url | jsonify }},
+                        desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
+                        icon: "fa-bullhorn"
+                    }
+                    {% assign count = count | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+        ],
+        artikel: [
+            {% assign count = 0 %}
+            {% for post in site.posts %}
+                {% if post.path contains '_posts/artikel/' %}
+                    {% if count > 0 %},{% endif %}
+                    {
+                        title: {{ post.title | jsonify }},
+                        date: "{{ post.date | date: '%d %B %Y' }}",
+                        url: {{ post.url | relative_url | jsonify }},
+                        desc: {{ post.excerpt | strip_html | truncatewords: 15 | jsonify }},
+                        icon: "fa-book-open"
+                    }
+                    {% assign count = count | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+        ]
+    };
 	
 	// 2. Konfigurasi State Navigasi
 	let currentCategory = 'berita';
