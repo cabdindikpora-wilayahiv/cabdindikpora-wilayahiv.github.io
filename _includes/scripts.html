@@ -1,7 +1,7 @@
 <script>
-		  // 1. Ekstraksi Data dari Engine Jekyll ke Array JavaScript saat Build Time
-		  const allData = {
-		    berita: [
+	// 1. Ekstraksi Data dari Engine Jekyll ke Array JavaScript saat Build Time
+	const allData = {
+		berita: [
 		      {% for post in site.posts %}
 		        {% if post.category == 'berita' or post.categories contains 'berita' %}
 		        {
@@ -121,4 +121,18 @@
 		  document.addEventListener('DOMContentLoaded', () => {
 		    renderContent(1);
 		  });
+		  
+		  document.addEventListener("DOMContentLoaded", function () {
+			// Pengaturan durasi putaran slide (dalam milidetik, 5000 = 5 detik)
+			const opsiCarousel = {
+				interval: 5000,
+				ride: 'carousel',
+				pause: 'hover' // Slide berhenti berputar sejenak saat kursor mouse menyentuhnya
+			};
+
+			// Inisialisasi ketiga carousel galeri Anda
+			const carousel1 = new bootstrap.Carousel(document.getElementById('carouselPrestasi'), opsiCarousel);
+			const carousel2 = new bootstrap.Carousel(document.getElementById('carouselKegiatan'), opsiCarousel);
+			const carousel3 = new bootstrap.Carousel(document.getElementById('carouselSport'), opsiCarousel);
+		});
 		</script>
