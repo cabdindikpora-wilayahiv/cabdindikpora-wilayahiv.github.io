@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Diseminasi dan Pengujian UKBI di Kabupaten Sumbawa Resmi Dibuka"
 date: 2026-05-20
 categories: 
