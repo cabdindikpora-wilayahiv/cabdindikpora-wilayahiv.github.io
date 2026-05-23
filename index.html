@@ -203,39 +203,36 @@ title: Beranda
 
 <!-- Berita, Pengumuman, Artikel & Agenda Kegiatan -->
 <section class="container my-5 py-4">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
-        <div>
-          <h2 class="fw-bold mb-0">Pusat Informasi</h2>
-          <p class="text-muted mb-0">Berita, pengumuman, dan artikel terbaru wilayah IV</p>
-        </div>
-        <ul class="nav nav-pills" id="infoTab" role="tablist">
-          <li class="nav-item">
-            <button class="nav-link active rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-berita" onclick="currentCategory='berita'; renderContent(1)">Berita</button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-pengumuman" onclick="currentCategory='pengumuman'; renderContent(1)">Pengumuman</button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-artikel" onclick="currentCategory='artikel'; renderContent(1)">Artikel</button>
-          </li>
-        </ul>
-      </div>
-
-      <div class="tab-content" id="infoTabContent">
-        <div class="tab-pane fade show active" id="tab-data">
-          <div class="row g-4" id="contentWrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
+                <div>
+                    <h2 class="fw-bold mb-0">Pusat Informasi</h2>
+                    <p class="text-muted mb-0">Berita, pengumuman, dan artikel terbaru wilayah IV</p>
+                </div>
+                <ul class="nav nav-pills" id="infoTab" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-berita" onclick="currentCategory='berita'; renderContent(1)">Berita</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-pengumuman" onclick="currentCategory='pengumuman'; renderContent(1)">Pengumuman</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link rounded-pill px-4" data-bs-toggle="tab" data-bs-target="#tab-artikel" onclick="currentCategory='artikel'; renderContent(1)">Artikel</button>
+                    </li>
+                </ul>
             </div>
-
-          <nav class="mt-5">
-            <ul class="pagination justify-content-center" id="paginationWrapper">
-              </ul>
-          </nav>
+            
+            <div class="tab-content" id="infoTabContent">
+                <div class="tab-pane fade show active" id="tab-data">
+                    <div class="row g-4" id="contentWrapper"></div>
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center" id="paginationWrapper"></ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- ADDITION 2: GALERI & PRESTASI WILAYAH (DYNAMIC CAROUSEL) -->
