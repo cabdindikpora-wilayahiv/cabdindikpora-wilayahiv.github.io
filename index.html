@@ -30,14 +30,14 @@ title: Beranda
 <header id="heroSlideshow" class="carousel slide carousel-fade text-center position-relative overflow-hidden" data-bs-ride="carousel" data-bs-interval="6000">
     <!-- Indikator Slide (Garis Kecil di Bawah) -->
     <div class="carousel-indicators">
-        {% for slide in site.data.hero_slides %}
+        {% for slide in site.data.banner %}
             <button type="button" data-bs-target="#heroSlideshow" data-bs-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.index }}"></button>
         {% endfor %}
     </div>
 
     <!-- Konten Slide -->
     <div class="carousel-inner h-100">
-        {% for slide in site.data.hero_slides %}
+        {% for slide in site.data.banner %}
         <div class="carousel-item h-100 {% if forloop.first %}active{% endif %}">
             <!-- Gambar Latar Belakang dengan Overlay -->
             <div class="hero-slide-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('{{ slide.gambar | relative_url }}');"></div>
