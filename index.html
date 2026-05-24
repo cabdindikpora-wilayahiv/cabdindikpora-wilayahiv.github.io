@@ -13,7 +13,7 @@ title: Beranda
     </div>
 </div>
 
-<!-- Bagian Banner Utama -->
+<!-- Bagian Banner Utama
 <header class="hero-gradient text-center">
     <div class="container">
         <span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2">Sistem Informasi Terpadu</span>
@@ -24,6 +24,55 @@ title: Beranda
             <button class="btn btn-outline-light btn-lg rounded-pill px-5">Bantuan</button>
         </div>
     </div>
+</header> -->
+
+<!-- Bagian Banner Utama (Dynamic Slideshow) -->
+<header id="heroSlideshow" class="carousel slide carousel-fade text-center position-relative overflow-hidden" data-bs-ride="carousel" data-bs-interval="6000">
+    <!-- Indikator Slide (Garis Kecil di Bawah) -->
+    <div class="carousel-indicators">
+        {% for slide in site.data.hero_slides %}
+            <button type="button" data-bs-target="#heroSlideshow" data-bs-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.index }}"></button>
+        {% endfor %}
+    </div>
+
+    <!-- Konten Slide -->
+    <div class="carousel-inner h-100">
+        {% for slide in site.data.hero_slides %}
+        <div class="carousel-item h-100 {% if forloop.first %}active{% endif %}">
+            <!-- Gambar Latar Belakang dengan Overlay -->
+            <div class="hero-slide-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('{{ slide.gambar | relative_url }}');"></div>
+            
+            <!-- Konten Teks -->
+            <div class="carousel-caption d-flex align-items-center h-100">
+                <div class="container py-5">
+                    {% if slide.badge %}
+                        <span class="badge rounded-pill bg-light text-dark mb-3 px-3 py-2 animate-fade-down">{{ slide.badge }}</span>
+                    {% endif %}
+                    <h1 class="display-3 fw-800 mb-3 text-white animate-fade-up">{{ slide.judul }}</h1>
+                    <p class="lead opacity-90 mb-5 text-white mx-auto style-subjudul">{{ slide.subjudul }}</p>
+                    <div class="d-flex justify-content-center gap-3 animate-fade-up-delayed">
+                        {% if slide.tombol_utama %}
+                            <a href="{{ slide.tombol_utama.link }}" class="btn btn-light btn-lg rounded-pill px-5">{{ slide.tombol_utama.teks }}</a>
+                        {% endif %}
+                        {% if slide.tombol_kedua %}
+                            <a href="{{ slide.tombol_kedua.link }}" class="btn btn-outline-light btn-lg rounded-pill px-5">{{ slide.tombol_kedua.teks }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Tombol Navigasi Kiri & Kanan -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlideshow" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sebelumnya</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlideshow" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Selanjutnya</span>
+    </button>
 </header>
 
 <!-- ADDITION 1: QUICK STATS (STATISTIK & DATA SEKTORAL) -->
