@@ -163,5 +163,69 @@
 		if (elPrestasi) new bootstrap.Carousel(elPrestasi, opsiCarousel);
 		if (elKegiatan) new bootstrap.Carousel(elKegiatan, opsiCarousel);
 		if (elSport) new bootstrap.Carousel(elSport, opsiCarousel);
+
+		/* Tim Kerja */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        // 1. Data Riil Tim Kerja (Mudah diupdate kapan saja)
+	        const teamData = [
+	            {
+	                nama: "Nama Kepala Cabang Dinas, S.Pd.",
+	                jabatan: "Kepala Cabang Dinas",
+	                tugas: "Memimpin dan mengendalikan jalannya organisasi Cabang Dinas Wilayah IV.",
+	                foto: "" // Isi dengan URL foto jika ada, contoh: "assets/img/tim/kacabdin.jpg"
+	            },
+	            {
+	                nama: "Nama Kasubag Tata Usaha, SE.",
+	                jabatan: "Kasubag Tata Usaha",
+	                tugas: "Mengoordinasikan pelayanan administrasi, kepegawaian, dan keuangan internal.",
+	                foto: ""
+	            },
+	            {
+	                nama: "Zainul Ikhsan Hakim",
+	                jabatan: "Pranata Komputer Ahli Pertama",
+	                tugas: "Mengelola sistem informasi, infrastruktur TI, dan integrasi data pendidikan (Dapodik).",
+	                foto: "" 
+	            }
+	            // Anda bisa menambah staf atau pengawas lain di bawah ini dengan format yang sama
+	        ];
+	
+	        // 2. Proses Render Kartu ke dalam HTML
+	        const container = document.getElementById("team-container");
+	        let htmlContent = "";
+	
+	        teamData.forEach(anggota => {
+	            // Logika gambar: Jika foto kosong, gunakan ikon siluet default FontAwesome
+	            let fotoHTML = `<div class="avatar-wrapper rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3 shadow-sm text-secondary">
+	                                <i class="fas fa-user-circle"></i>
+	                            </div>`;
+	            
+	            if (anggota.foto && anggota.foto.trim() !== "") {
+	                fotoHTML = `<div class="avatar-wrapper rounded-circle mx-auto mb-3 shadow-sm">
+	                                <img src="${anggota.foto}" alt="${anggota.nama}" class="w-100 h-100 object-fit-cover">
+	                            </div>`;
+	            }
+	
+	            // Tentukan ukuran kolom berdasarkan jabatan (Pejabat struktural dibuat lebih besar)
+	            let colClass = "col-xl-3 col-lg-4 col-md-6";
+	            if (anggota.jabatan === "Kepala Cabang Dinas") {
+	                colClass = "col-12 mb-3 text-center"; // Kepala Dinas ditaruh di tengah/atas jika mau
+	            }
+	
+	            htmlContent += `
+	                <div class="${colClass}">
+	                    <div class="card h-100 team-card text-center p-4 shadow-sm rounded-3">
+	                        <div class="card-body p-0">
+	                            ${fotoHTML}
+	                            <h5 class="fw-bold text-dark mb-1 fs-6">${anggota.nama}</h5>
+	                            <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-1.5 rounded-pill fw-semibold">${anggota.jabatan}</span>
+	                            <p class="card-text text-muted small mb-0">${anggota.tugas}</p>
+	                        </div>
+	                    </div>
+	                </div>
+	            `;
+	        });
+	
+	        container.innerHTML = htmlContent;
+	    });
 	});
 </script>
